@@ -1,6 +1,8 @@
 const Gdax = require('gdax');
 //const uuid = require('node-uuid');
 const publicClient = new Gdax.PublicClient();
+const uuidv1 = require('uuid/v1');
+
 
 module.exports = function (context, req) {
 
@@ -9,6 +11,7 @@ context.log('JavaScript HTTP trigger function processed a request.');
 
     var callback = function(err, response, data) {
         var temp = "";
+        temp = uuidv1();
         temp = data[0].id;
         context.res.body = context.res.body + temp;       
         context.done();
