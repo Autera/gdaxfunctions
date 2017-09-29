@@ -12,7 +12,7 @@ context.log('JavaScript HTTP trigger function processed a request.');
     var callback = function(err, response, data) {
         var temp = "";
         temp = uuidv1();
-        temp = data[0].id;
+        temp = temp + data[0].id;
         context.res.body = context.res.body + temp;       
         context.done();
       };
