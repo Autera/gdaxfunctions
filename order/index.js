@@ -7,11 +7,11 @@ const uuidv1 = require('uuid/v1');
 module.exports = function (context, req) {
 
 context.log('JavaScript HTTP trigger function processed a request.');
-  
+    var apiKey =  process.env["APIKey"];
 
     var callback = function(err, response, data) {
         var temp = "";
-        temp = uuidv1();
+        temp = apiKey + uuidv1();
         temp = temp + data[0].id;
         context.res.body = context.res.body + temp;       
         context.done();
