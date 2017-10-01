@@ -1,5 +1,5 @@
 const Gdax = require('gdax');
-const uuid = require('node-uuid');
+ 
 const publicClient = new Gdax.PublicClient();
 
 module.exports = function (context, req) {
