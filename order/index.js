@@ -10,12 +10,12 @@ module.exports = function (context, req) {
     try
     { 
 		//'BTC-USD'
-		var buyParams = {'client_oid' : req.query.client_oid, 'type': 'market', 'side' : 'buy', 'funds': req.query.funds, 'product_id':req.query.product_id}
+		var buyParams = {'client_oid' : req.body.client_oid, 'type': 'market', 'side' : 'buy', 'funds': req.body.funds, 'product_id':req.body.product_id}
 		 
 		var gdaxURI = process.env["GdaxURI"];
 		var b64secret = process.env["b64secret"];
 		var passphrase = process.env["passphrase"];
-		var ApiKey = req.query.apikey;
+		var ApiKey = req.body.apikey;
 		var tempTest = process.env["test"];
 		
 		
