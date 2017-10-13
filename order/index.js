@@ -8,8 +8,7 @@ module.exports = function (context, req) {
     
     var tempErr = "";
     try
-    { 
-		//'BTC-USD'
+    {  
 		var buyParams = {'client_oid' : req.body.client_oid, 'type': 'market', 'side' : 'buy', 'funds': req.body.funds, 'product_id':req.body.product_id}
 		 
 		var gdaxURI = process.env["GdaxURI"];
@@ -27,8 +26,7 @@ module.exports = function (context, req) {
 			{            
                 context.res = {
                     // status: 200, /* Defaults to 200 */
-                    body: response.body
-                    //"Successfully processed order Funds:" + req.query.funds + " Product: "+ req.query.funds 
+                    body: response.body 
                 };
 			    context.done();
 			}
