@@ -9,15 +9,13 @@ module.exports = function (context, req) {
     var tempErr = "";
     try
     {  
-		var buyParams = {'client_oid' : req.body.client_oid, 'type': 'market', 'side' : 'buy', 'funds': req.body.funds, 'product_id':req.body.product_id}
-		 
+		
+	    	var buyParams = {'type': 'market', 'side' : 'buy', 'funds': req.body.funds, 'product_id':req.body.product_id}
 		var gdaxURI = process.env["GdaxURI"];
 		var b64secret = process.env["b64secret"];
 		var passphrase = process.env["passphrase"];
-		var ApiKey = req.body.apikey;
-		var tempTest = process.env["test"];
-		
-		
+		var ApiKey = req.body.apikey;  
+	    
 		var authedClient = new Gdax.AuthenticatedClient(
 			ApiKey, b64secret, passphrase, gdaxURI);
  
@@ -25,8 +23,8 @@ module.exports = function (context, req) {
 			try
 			{            
                 context.res = {
-                    // status: 200, /* Defaults to 200 */
-                    body: response.body 
+                    body: response.body,
+                    status: response.statusCode
                 };
 			    context.done();
 			}
